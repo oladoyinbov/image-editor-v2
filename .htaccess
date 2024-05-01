@@ -1,0 +1,59 @@
+<IfModule mod_rewrite.c>
+
+# disable access to environment config file
+    <Files .env>
+        order allow,deny
+        Deny from all
+    </Files>
+    
+RewriteEngine On
+RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf|\.csv)$
+
+# block public access to all server hidden files
+RewriteRule (^\.|/\.) - [F]
+
+# remove trailing slash
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [L,R=301,NE]
+
+# prevent directory listing
+Options -Indexes
+
+# Disable PHP's expose_php
+php_flag expose_php Off
+
+# Set session cookie attributes
+php_value session.cookie_httponly true
+php_value session.cookie_secure true
+
+# Enable XSS protection
+Header set X-XSS-Protection "1; mode=block"
+
+# Set Content Security Policy (CSP) (Enable Only If Needed)
+# Header set Content-Security-Policy "default-src 'self';"
+
+# Prevent MIME-type sniffing
+Header set X-Content-Type-Options nosniff
+
+# remove Powered By
+Header set X-Powered-By Fastvolt
+
+# Enable Strict-Transport-Security (HSTS) only in production
+# Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+# Enable Cross-Origin Resource Sharing (CORS)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE"
+</IfModule>
+
+# Disable server signature
+ServerSignature Off
+
+# Protect against Clickjacking attacks
+Header always append X-Frame-Options SAMEORIGIN
+
+# redirect to public directory
+RewriteRule (.*)$ public/index.php [QSA,L]
+
+</IfModule>

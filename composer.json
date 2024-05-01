@@ -1,0 +1,35 @@
+{
+    "name": "oladoyinbov/lk",
+    "description": "A PHP Minimal Framework For Building Small/Medium Scale Application",
+    "license": "MIT",
+    "keywords": [
+        "framework",
+        "php-router",
+        "php-framework",
+        "application",
+        "simple-php-framework"
+    ],
+    "autoload": {
+        "psr-4": {
+            "FastVolt\\": "src/",
+            "App\\": "app/"
+        },
+            "files": [
+                "app/Functions/Image.php",
+                "src/Core/Functions/Environment.php",
+                "src/Core/Functions/RoutingLoader.php",
+                "src/Core/Functions/ResourcesLoader.php",
+                "src/Core/Functions/Helpers.php"
+            ]
+    },
+    "require": {
+        "php": "^8.1",
+        "smarty/smarty": "4.3",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "config": {
+        "allow-plugins": {
+            "oat-sa/composer-npm-bridge": true
+        }
+    }
+}

@@ -1,0 +1,15 @@
+/composer.lock
+/logistic.code-workspace
+/.env
+/vendor
+/storage/error_log
+/src
+/.github
+/.vscode
+/tools
+storage/smarty/
+resources/uploads/
+resources/font-awesome
+/.php-cs-fixer.cache
+/phpstan.neon
+node_modules/

@@ -1,0 +1,37 @@
+/**@import url(https://fonts.bunny.net/css?family=inter:100,200,300,400,500);**/
+
+@font-face {
+    font-family: Logo;
+    src: url('../fonts/Ginger\ Cat.ttf');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: Logo;
+    src: url('../fonts/Ginger\ Cat.ttf');
+    font-weight: bolder;
+}
+
+@font-face {
+    font-family: Bella;
+    src: url('../fonts/Bella.ttf');
+    font-weight:normal;
+}
+
+.htmx-indicator{
+    display:none;
+}
+.htmx-request .htmx-indicator{
+    display:inline;
+}
+.htmx-request.htmx-indicator{
+    display:inline;
+}
+
+#indix {
+    display: none;
+}
+
+#download_btn {
+    display: none;
+}
