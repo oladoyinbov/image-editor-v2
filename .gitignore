@@ -9,7 +9,7 @@
 /tools
 storage/smarty/
 resources/uploads/
-resources/font-awesome
+/resources/font-awesome
 /.php-cs-fixer.cache
 /phpstan.neon
 node_modules/
